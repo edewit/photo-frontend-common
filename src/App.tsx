@@ -1,25 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import '@patternfly/react-core/dist/styles/base.css';
+import React, { useState, useLayoutEffect, useRef } from 'react';
+import { Switch, Link, Route } from 'react-router-dom';
+import { DropdownItem } from '@patternfly/react-core';
+import { AddCircleOIcon } from '@patternfly/react-icons'
+import { Layout } from './layout';
+import 'photo';
+import 'like';
 import './App.css';
 
 const App: React.FC = () => {
+  const userDropdownItems = [
+    <DropdownItem key="1" component="span">
+      <Link to="/">Photos</Link>
+    </DropdownItem>,
+    <DropdownItem key="2" component="span">
+      <Link to="/addPhoto">Add</Link>
+    </DropdownItem>
+  ];
+
+  const [photoId, setPhotoId] = useState<number>(-1);
+  const ref = useRef<any>(null);
+  const photoIdChange = (customEvent: CustomEvent) =>
+    setPhotoId(customEvent.detail);
+  useLayoutEffect(() => {
+    const { current } = ref;
+    current.addEventListener('photoId', photoIdChange);
+    return () => current.removeEventListener('photoId', photoIdChange);
+  }, [ref]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout userDropdownItems={userDropdownItems}>
+      <Switch>
+        <Route path="/addPhoto">
+          <photo-add></photo-add>
+        </Route>
+        <Route path="/">
+          <photo-carousel ref={ref}></photo-carousel>
+          <div className="add">
+            <like-button photoId={photoId}></like-button>
+            <Link to="/addPhoto">
+              <AddCircleOIcon size="xl" />
+            </Link>
+          </div>
+        </Route>
+      </Switch>
+
+    </Layout>
   );
 }
 

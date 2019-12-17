@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@patternfly/react-core": "^3.124.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -10,10 +11,15 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "like": "/home/edewit/workspace/private/photo-microservices/photo-gallery-like/src/main/frontend/",
+    "node-sass": "^4.13.0",
+    "photo": "/home/edewit/workspace/private/photo-microservices/photo-gallery-photo/src/main/frontend/",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "vue": "^2.6.10"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -21,6 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8080",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -35,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.1.3"
   }
 }
