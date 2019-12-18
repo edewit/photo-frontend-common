@@ -6,6 +6,7 @@ import { AddCircleOIcon } from '@patternfly/react-icons'
 import { Layout } from './layout';
 import 'photo';
 import 'like';
+import 'query';
 import './App.css';
 
 const App: React.FC = () => {
@@ -37,11 +38,12 @@ const App: React.FC = () => {
         <Route path="/">
           <photo-carousel ref={ref}></photo-carousel>
           <div className="add">
-            <like-button photoId={photoId}></like-button>
+            <like-button id={photoId}></like-button>
             <Link to="/addPhoto">
               <AddCircleOIcon size="xl" />
             </Link>
           </div>
+          <query-list></query-list>
         </Route>
       </Switch>
 

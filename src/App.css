@@ -1,6 +1,9 @@
+* {
+  --like-color: var(--pf-global--link--Color);
+  --header-text-color: var(--pf-global--Color--dark-100);
+}
 .add {
   position: absolute;
   right: 70px;
   top: 240px;
-  --like-color: var(--pf-global--link--Color);
 }
