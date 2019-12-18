@@ -3,7 +3,8 @@
   --header-text-color: var(--pf-global--Color--dark-100);
 }
 .add {
-  position: absolute;
-  right: 70px;
-  top: 240px;
+  position: relative;
+  float: right;
+  margin-right: 30px;
+  top: -100px;
 }
