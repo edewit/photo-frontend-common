@@ -13,7 +13,7 @@
     "@types/react-dom": "^16.9.0",
     "http-proxy-middleware": "^0.20.0",
     "like": "../photo-gallery-like/src/main/frontend",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "photo": "../photo-gallery-photo/src/main/frontend",
     "query": "../photo-gallery-query/src/main/frontend",
     "react": "^16.12.0",
